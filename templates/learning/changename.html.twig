@@ -5,7 +5,7 @@
 {% block body %}
     <form method="post" action="{{ path('showName')}}">
         <label for="myName">Name:</label>
-        <input type="text" id="myName" name="myName">
+        <input type="text" id="myName" name="myName" required>
         <button type="submit">go</button>
     </form>
 {% endblock %}
