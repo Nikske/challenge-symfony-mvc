@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Change your name{% endblock %}
+
+{% block body %}
+    <form method="post" action="{{ path('showName')}}">
+        <label for="myName">Name:</label>
+        <input type="text" id="myName" name="myName">
+        <button type="submit">go</button>
+    </form>
+{% endblock %}
