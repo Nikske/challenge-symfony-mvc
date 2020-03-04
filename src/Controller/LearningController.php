@@ -12,11 +12,17 @@ class LearningController extends AbstractController {
     }
 
     /**
-     * @Route("/about-me", name="aboutMe")
+     * @Route("/about-me", name="about")
      */
     public function aboutMe() {
-        return $this->render('learning/index.html.twig', [
-        ]);
+        if (empty($_SESSION['myName'])) {
+            return $this->redirectToRoute('changeName');
+        } else {
+            $this->name = $_SESSION['myName'];
+            return $this->render('learning/index.html.twig', [
+                'name' => $this->getName()
+            ]);
+        }
     }
 
     /**
