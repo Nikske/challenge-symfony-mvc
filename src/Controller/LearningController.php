@@ -27,7 +27,11 @@ class LearningController extends AbstractController {
         if (empty($_POST['myName'])){
             return $this->redirectToRoute('changeName');
         } else {
-            $this->name = $_POST['myName'];
+            if (empty($_SESSION['myName'])) {
+                $_SESSION['myName'] = $_POST['myName'];
+                $this->name = $_SESSION['myName'];
+            }
+            $this->name = $_SESSION['myName'];
             return $this->render('learning/showname.html.twig', [
                 'name' => $this->getName()
             ]);
