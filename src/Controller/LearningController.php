@@ -23,6 +23,7 @@ class LearningController extends AbstractController {
      * @Route("/show-name", name="showName")
      */
     public function showMyName() {
+        // If the user somehow came upon this page (by entering the URL) without a post, redirect them back to the form.
         if (empty($_POST['myName'])){
             return $this->redirectToRoute('changeName');
         } else {
